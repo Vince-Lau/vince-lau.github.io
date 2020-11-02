@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>最新一版本博客开发进度</title>
+      <link href="2020/11/03/%E6%9C%80%E6%96%B0%E4%B8%80%E7%89%88%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/"/>
+      <url>2020/11/03/%E6%9C%80%E6%96%B0%E4%B8%80%E7%89%88%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="初始化进度"><a href="#初始化进度" class="headerlink" title="初始化进度"></a>初始化进度</h1><h2 id="2-主题页面"><a href="#2-主题页面" class="headerlink" title="2. 主题页面"></a><a href="https://butterfly.js.org/posts/dc584b87/#Front-matter">2. 主题页面</a></h2><ul><li><input disabled type="checkbox"> page页补充描述</li><li><input disabled type="checkbox"> post配置默认</li><li><input disabled type="checkbox"> 音乐、电影、图库、说说（可以有页面，搭建好）</li></ul><h2 id="3-主题配置-1"><a href="#3-主题配置-1" class="headerlink" title="3. 主题配置-1"></a><a href="https://butterfly.js.org/posts/4aa8abbe/">3. 主题配置-1</a></h2><h2 id="4-主题配置-2"><a href="#4-主题配置-2" class="headerlink" title="4. 主题配置-2"></a><a href="https://butterfly.js.org/posts/ceeb73f/">4. 主题配置-2</a></h2><h2 id="5-主题问答"><a href="#5-主题问答" class="headerlink" title="5. 主题问答"></a><a href="https://butterfly.js.org/posts/98d20436/">5. 主题问答</a></h2><h1 id="项目进度"><a href="#项目进度" class="headerlink" title="项目进度"></a>项目进度</h1><ul><li><input disabled type="checkbox"> 社交图标</li><li><input disabled type="checkbox"> 文章评论 </li><li><input disabled type="checkbox"> 文章打赏</li><li><input disabled type="checkbox"> 文章分享</li><li><input disabled type="checkbox"> 版权申明</li><li><input disabled type="checkbox"> 404页面生成</li><li><input disabled type="checkbox"> 文章置顶</li><li><input disabled type="checkbox"> 文章隐藏</li><li><input disabled type="checkbox"> <strong>公式支持优化</strong></li><li><input disabled type="checkbox"> 文章封面</li><li><input disabled type="checkbox"> 图床</li><li><input disabled type="checkbox"> 搜索系统</li><li><input disabled type="checkbox"> 插入音乐</li><li><input disabled type="checkbox"> 插入视频</li><li><input disabled type="checkbox"> 美化</li></ul><div class="note warning flat"><p>此文档也用于一些功能的测试，此处文字说明用作语句块warning的测试</p></div><div class="note success flat"><p>近一个月陆续解决了主题上的一些bug，最新重作的这个版本不错，但是其他人编辑，一些环境依赖的移植问题还需解决，此处文字说明用作语句块success的测试。</p></div><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="紧急"><a href="#紧急" class="headerlink" title="紧急"></a>紧急</h2><ul><li>公告需修改</li><li>引用链接不是中文，有乱码</li><li>图标显示失败</li></ul><h2 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h2><p>使用disqus评论服务，需要申请API，网站需要使用公用账户注册</p><p>或者，使用gitalk，有很多评论服务可供删选，这一块还要花费很大力气弄</p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>需要添加学长账户的二维码，还需要增加打赏人的名单</p><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>需要增加<a href="https://docs.jerryc.me/#/zh-cn/config/theme-config?id=algolia">Algolia</a>搜索和本地搜索，后端还没配置，因为前端还没设计好</p><h1 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h1><ul><li>文章评分功能</li><li>文章推荐栏</li><li><a href="https://docs.jerryc.me/#/zh-cn/diy/Daovoice">基于Daovoice的实时聊天</a></li><li><a href="https://docs.jerryc.me/#/zh-cn/diy/gitalk-widget">基于Gitalk的侧边栏动态</a></li><li><a href="https://docs.jerryc.me/#/zh-cn/config/theme-config?id=%E8%B0%B7%E6%AD%8C%E5%B9%BF%E5%91%8A">谷歌广告植入</a></li></ul><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="公式测试"><a href="#公式测试" class="headerlink" title="公式测试"></a>公式测试</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="2020/05/10/hello-world/"/>
       <url>2020/05/10/hello-world/</url>

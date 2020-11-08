@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>vmware搭建集群 | 知 青</title><meta name="keywords" content="spark,vmware"><meta name="author" content="知青,lauyuanjing@163.com"><meta name="copyright" content="知青"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="介绍VMwareVMware Workstation 是一个虚拟PC的软件，利用VMware工作站，可以在现有的操作系统上虚拟出一个或多个新的硬件环境，相当于模拟出多台新的PC，以此来实现在一台机器上同时运行多个独立的操作系统。VMware 是一种常用的、功能强大的虚拟机管理软件，还有一种比较常用的轻量级的虚拟机管理软件VirtualBox。 VMware Workstation 是一种虚拟机管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vmware搭建集群">
+<meta property="og:url" content="https://vince-lau.github.io/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/index.html">
+<meta property="og:site_name" content="知 青">
+<meta property="og:description" content="介绍VMwareVMware Workstation 是一个虚拟PC的软件，利用VMware工作站，可以在现有的操作系统上虚拟出一个或多个新的硬件环境，相当于模拟出多台新的PC，以此来实现在一台机器上同时运行多个独立的操作系统。VMware 是一种常用的、功能强大的虚拟机管理软件，还有一种比较常用的轻量级的虚拟机管理软件VirtualBox。 VMware Workstation 是一种虚拟机管理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2020-11-08T07:48:36.000Z">
+<meta property="article:modified_time" content="2020-11-08T11:11:23.920Z">
+<meta property="article:author" content="知青">
+<meta property="article:tag" content="spark">
+<meta property="article:tag" content="vmware">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://vince-lau.github.io/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.2.0',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-11-08 19:11:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {
+  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }
+})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">3</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">5</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8DVMware"><span class="toc-number">1.</span> <span class="toc-text">介绍VMware</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMware%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">VMware的下载和安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VMware%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">VMware的使用教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B"><span class="toc-number">3.1.</span> <span class="toc-text">安装破解教程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%95%99%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">创建虚拟机教程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4"><span class="toc-number">4.</span> <span class="toc-text">搭建集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">集群使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%9C%BA%E7%89%88%E7%8E%AF%E5%A2%83"><span class="toc-number">5.1.</span> <span class="toc-text">单机版环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%8E%AF%E5%A2%83"><span class="toc-number">5.2.</span> <span class="toc-text">分布式环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E7%8E%AF%E5%A2%83"><span class="toc-number">5.3.</span> <span class="toc-text">python环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E9%85%8D%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">开发配置</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">知 青</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">vmware搭建集群</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-11-08T07:48:36.000Z" title="发表于 2020-11-08 15:48:36">2020-11-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-08T11:11:23.920Z" title="更新于 2020-11-08 19:11:23">2020-11-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/tools/">tools</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="介绍VMware"><a href="#介绍VMware" class="headerlink" title="介绍VMware"></a>介绍VMware</h2><p>VMware Workstation 是一个虚拟PC的软件，利用VMware工作站，可以在现有的操作系统上虚拟出一个或多个新的硬件环境，相当于模拟出多台新的PC，以此来实现在一台机器上同时运行多个独立的操作系统。VMware 是一种常用的、功能强大的虚拟机管理软件，还有一种比较常用的轻量级的虚拟机管理软件VirtualBox。</p>
+<p>VMware Workstation 是一种虚拟机管理软件，安装该软件后，可以创建多个虚拟机（即虚拟PC），然后在虚拟机上安装操作系统即可，每台虚拟机本身就像一台真正地电脑一样。</p>
+<p>VMware 官方网站：<a target="_blank" rel="noopener" href="http://www.vmware.com/">http://www.vmware.com</a></p>
+<p>VMware的主要特点：</p>
+<ul>
+<li>可以在同一台机器上同时运行多个操作系统；</li>
+<li>本机系统可以与虚拟机系统进行网络通信；</li>
+<li>可以随时修改虚拟机系统的硬件环境。</li>
+</ul>
+<h2 id="VMware的下载和安装"><a href="#VMware的下载和安装" class="headerlink" title="VMware的下载和安装"></a>VMware的下载和安装</h2><p>VMware Workstation 15 Pro for Windows（64 位）的下载地址如下：</p>
+<p>官方地址：<a target="_blank" rel="noopener" href="https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe">https://download3.vmware.com/software/wkst/file/VMware-workstation-full-15.5.0-14665864.exe</a><br>百度网盘地址：（待添加）</p>
+<p>注意：要与VMware的版本对应上，尽量不要使用最新的版本<br>许可证密钥：AZ312-2FE41-M81LP-R6WEZ-NA2Z4（失效了再多找一找）</p>
+<p>上面的任何一个下载地址都可以使用。</p>
+<p>下载完VMware Workstation 12的安装包后，直接安装即可。虽然下载的是试用版，但是我这里提供了密钥，用密钥激活后就可永久免费使用。安装方法很简单，直接双击安装程序，默认安装即可。安装完成后，点击桌面的快捷启动图标，会提示你输入许可证密钥，把上面的密钥输入就可以激活了。</p>
+<h2 id="VMware的使用教程"><a href="#VMware的使用教程" class="headerlink" title="VMware的使用教程"></a>VMware的使用教程</h2><h3 id="安装破解教程"><a href="#安装破解教程" class="headerlink" title="安装破解教程"></a>安装破解教程</h3><p>安装完成，直接输入秘钥即可<br><a target="_blank" rel="noopener" href="https://www.dcydz.com/307.html">https://www.dcydz.com/307.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mr-xiong/p/12468280.html">https://www.cnblogs.com/mr-xiong/p/12468280.html</a></p>
+<p>输入上面秘钥，可以成功激活</p>
+<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/image-20201108164627966.png" alt="image-20201108164627966"></p>
+<h3 id="创建虚拟机教程"><a href="#创建虚拟机教程" class="headerlink" title="创建虚拟机教程"></a>创建虚拟机教程</h3><ul>
+<li><p>固定静态ip</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014466635/article/details/80284792">Vmware虚拟机设置固定IP地址_Owen的博客-CSDN博客</a></p>
+<p><strong>VM虚拟机设置NAT模式，VM虚拟网卡固定好IP不变</strong></p>
+<blockquote>
+<p>windows修改虚拟机设置去固定centos的IP（参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014466635/article/details/80284792">Vmware虚拟机设置固定IP地址_Owen的博客-CSDN博客</a></p>
+<p>Mac参考：<a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/1026510">https://kb.vmware.com/s/article/1026510</a></p>
+</blockquote>
+</li>
+<li><p>通过vmdk文件创建虚拟机</p>
+<p><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/9113f81b2796852b3214c705.html">VMware通过vmdk文件创建虚拟机-百度经验</a></p>
+</li>
+</ul>
+<h2 id="搭建集群"><a href="#搭建集群" class="headerlink" title="搭建集群"></a>搭建集群</h2><h2 id="集群使用"><a href="#集群使用" class="headerlink" title="集群使用"></a>集群使用</h2><h3 id="单机版环境"><a href="#单机版环境" class="headerlink" title="单机版环境"></a>单机版环境</h3><ul>
+<li>如果电脑配置太低，建议大家使用单机版</li>
+<li>一台centos hadoop-master， 192.168.19.137</li>
+</ul>
+<h3 id="分布式环境"><a href="#分布式环境" class="headerlink" title="分布式环境"></a>分布式环境</h3><p><strong>三台虚拟机，觉得硬盘可以，配置可以使用</strong></p>
+<p>分别已配置好装有大数据计算环境，并且相应的数据都已经存在数据库和文件中</p>
+<ul>
+<li>hadoop-master</li>
+</ul>
+<p>已经开启hadoop、hbase、spark、hive</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">20160 Jps</span><br><span class="line">18786 Master</span><br><span class="line">4131 RunJar # hive</span><br><span class="line">17395 ResourceManager</span><br><span class="line">19219 Worker</span><br><span class="line">16757 NameNode</span><br><span class="line">17206 SecondaryNameNode</span><br><span class="line">18683 HRegionServer</span><br><span class="line">8637 ThriftServer # happybase使用</span><br><span class="line">18253 HMaster</span><br><span class="line">18159 HQuorumPeer</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>hadoop-slave1、hadoop-slave2</li>
+</ul>
+<p>开启hadoop、hbase、spark</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">3857 NodeManager</span><br><span class="line">4290 Worker</span><br><span class="line">4680 Jps</span><br><span class="line">3740 DataNode</span><br><span class="line">3980 HQuorumPeer</span><br><span class="line">4093 HRegionServers</span><br></pre></td></tr></table></figure>
+
+<p>默认都打开过了</p>
+<p>两种配置当中，都在scripts目录下有一键启动hadoop、hbase、spark的脚本，也有一键关闭hadoop、hbase、spark的脚本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@hadoop-master scripts]# pwd</span><br><span class="line">/root/scripts</span><br><span class="line">[root@hadoop-master scripts]# ls</span><br><span class="line">all.sh  my.cnf  start.sh  stop.sh</span><br><span class="line">[root@hadoop-master scripts]#</span><br></pre></td></tr></table></figure>
+
+<p>如果出现相关启动失败，三台hbase同步下时间：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 时间有误差问题同步一下：</span></span><br><span class="line">[root@hadoop-master ~]# ntpdate 0.cn.pool.ntp.org</span><br><span class="line">[root@hadoop-slave1 ~]# ntpdate 0.cn.pool.ntp.org</span><br><span class="line">[root@hadoop-slave2 ~]# ntpdate 0.cn.pool.ntp.org</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 然后指定全部关闭</span></span><br><span class="line">[root@hadoop-master ~]#. stop.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 全部启动</span></span><br><span class="line">[root@hadoop-master ~]#. start.sh</span><br></pre></td></tr></table></figure>
+
+<p>确定本地库都已经启动：</p>
+<p>hadoop</p>
+<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/hadoop%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
+<p>hbase</p>
+<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/hbase%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
+<p>spark</p>
+<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/spark%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
+<h3 id="python环境"><a href="#python环境" class="headerlink" title="python环境"></a>python环境</h3><p>装有anaconda系列虚拟环境即可，在这里先创建一个用于后面项目使用的虚拟环境，centos已提供miniconda2环境</p>
+<p>以下环境：都在三台centos中安装</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n reco_sys python=3.6.7</span><br><span class="line"></span><br><span class="line">pip install -r requirements.txt --ignore-installed</span><br></pre></td></tr></table></figure>
+
+<h2 id="开发配置"><a href="#开发配置" class="headerlink" title="开发配置"></a>开发配置</h2><p>pycharm关联连接本地项目与centos项目目录开发，配置如下，添加远程机器的IP和用户名，往后密码以及python环境位置，本地关联远程工程目录</p>
+<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/%E6%B7%BB%E5%8A%A0%E6%AD%A5%E9%AA%A4.png" alt="img"></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:lauyuanjing@163.com">知青</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://vince-lau.github.io/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/">https://vince-lau.github.io/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://vince-lau.github.io" target="_blank">知 青</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/spark/">spark</a><a class="post-meta__tags" href="/tags/vmware/">vmware</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2020/05/12/%E6%9C%80%E6%96%B0%E4%B8%80%E7%89%88%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/"><img class="next-cover" src="/img/article_cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">博客网站开发</div></div></a></div></nav></article></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By 知青</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

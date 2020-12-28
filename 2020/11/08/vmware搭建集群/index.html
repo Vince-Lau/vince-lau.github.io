@@ -159,7 +159,7 @@ var saveToLocal = {
 <p>下载完VMware Workstation 12的安装包后，直接安装即可。虽然下载的是试用版，但是我这里提供了密钥，用密钥激活后就可永久免费使用。安装方法很简单，直接双击安装程序，默认安装即可。安装完成后，点击桌面的快捷启动图标，会提示你输入许可证密钥，把上面的密钥输入就可以激活了。</p>
 <h2 id="VMware的使用教程"><a href="#VMware的使用教程" class="headerlink" title="VMware的使用教程"></a>VMware的使用教程</h2><h3 id="安装破解教程"><a href="#安装破解教程" class="headerlink" title="安装破解教程"></a>安装破解教程</h3><p>安装完成，直接输入秘钥即可<br><a target="_blank" rel="noopener" href="https://www.dcydz.com/307.html">https://www.dcydz.com/307.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mr-xiong/p/12468280.html">https://www.cnblogs.com/mr-xiong/p/12468280.html</a></p>
 <p>输入上面秘钥，可以成功激活</p>
-<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/image-20201108164627966.png" alt="image-20201108164627966"></p>
+<p><img src="img/image-20201108164627966.png" alt="image-20201108164627966"></p>
 <h3 id="创建虚拟机教程"><a href="#创建虚拟机教程" class="headerlink" title="创建虚拟机教程"></a>创建虚拟机教程</h3><ul>
 <li><p>固定静态ip</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014466635/article/details/80284792">Vmware虚拟机设置固定IP地址_Owen的博客-CSDN博客</a></p>
@@ -169,7 +169,7 @@ var saveToLocal = {
 <p>Mac参考：<a target="_blank" rel="noopener" href="https://kb.vmware.com/s/article/1026510">https://kb.vmware.com/s/article/1026510</a></p>
 </blockquote>
 <p>已设置好的，有些参数可以参考，如下所示：</p>
-<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/image-20201108193125709.png" alt="image-20201108193125709"></p>
+<p><img src="img/image-20201108193125709.png" alt="image-20201108193125709"></p>
 <p>注：上面的“使用本地DHCP服务……”这一项是没有钩选的</p>
 </li>
 <li><p>通过vmdk文件创建虚拟机</p>
@@ -216,15 +216,15 @@ var saveToLocal = {
 
 <p>确定本地库都已经启动：</p>
 <p>hadoop</p>
-<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/hadoop%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
+<p><img src="img/hadoop%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
 <p>hbase</p>
-<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/hbase%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
+<p><img src="img/hbase%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
 <p>spark</p>
-<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/spark%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
+<p><img src="img/spark%E5%90%AF%E5%8A%A8%E5%A5%BD%E7%9A%84.png" alt="img"></p>
 <h3 id="python环境"><a href="#python环境" class="headerlink" title="python环境"></a>python环境</h3><p>装有anaconda系列虚拟环境即可，在这里先创建一个用于后面项目使用的虚拟环境，centos已提供miniconda2环境</p>
 <p>以下环境：都在三台centos中安装</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n reco_sys python=3.6.7</span><br><span class="line"></span><br><span class="line">pip install -r requirements.txt --ignore-installed</span><br></pre></td></tr></table></figure>
 
 <h2 id="开发配置"><a href="#开发配置" class="headerlink" title="开发配置"></a>开发配置</h2><p>pycharm关联连接本地项目与centos项目目录开发，配置如下，添加远程机器的IP和用户名，往后密码以及python环境位置，本地关联远程工程目录</p>
-<p><img src="/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/%E6%B7%BB%E5%8A%A0%E6%AD%A5%E9%AA%A4.png" alt="img"></p>
+<p><img src="img/%E6%B7%BB%E5%8A%A0%E6%AD%A5%E9%AA%A4.png" alt="img"></p>
 </div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:lauyuanjing@163.com">知青</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://vince-lau.github.io/2020/11/08/vmware%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4/">https://vince-lau.github.io/2020/11/08/vmware搭建集群/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://vince-lau.github.io" target="_blank">知 青</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/spark/">spark</a><a class="post-meta__tags" href="/tags/vmware/">vmware</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/11/10/hexo%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0fron-master%E5%A1%AB%E5%86%99/"><img class="prev-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">hexo新建文章fron-master填写</div></div></a></div><div class="next-post pull-right"><a href="/2020/05/12/%E6%9C%80%E6%96%B0%E4%B8%80%E7%89%88%E6%9C%AC%E5%8D%9A%E5%AE%A2%E5%BC%80%E5%8F%91%E8%BF%9B%E5%BA%A6/"><img class="next-cover" src="/img/article_cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">博客网站开发</div></div></a></div></nav></article></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By 知青</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
